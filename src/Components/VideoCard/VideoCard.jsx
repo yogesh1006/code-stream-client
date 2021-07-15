@@ -1,6 +1,6 @@
 import React from "react";
 import "./videocard.css";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function VideoCard(props) {
   const { data } = props;
@@ -34,14 +34,4 @@ export function VideoCard(props) {
   );
 }
 
-// <div className="card" onClick={() => history.push(`/watch/${data.id}`)}>
-//    <ReactPlayer
-//         light='true'
-//         className='player'
-//         style={{backgroundImage: `url(${data.thumbnailImgUrl})`,objectFit:"cover"}}
-//     />
-//     <div className="card-text">
-//         <p className="card-primary-text">{data.title}</p>
-//         <p className="card-secondary-text"> {data.published_date}</p>
-//     </div>
-// </div>
+
