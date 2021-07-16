@@ -3,7 +3,7 @@ import { useAuth } from "../Contexts";
 
 export function PrivateRoute({ path, component }) {
     const { authState } = useAuth();
-    console.log("auth",authState)
+    // console.log("auth",authState)
     return authState.isUserLoggedIn ? (
         <Route path={path} component={component} />
     ) : (

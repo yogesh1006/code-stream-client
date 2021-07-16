@@ -1,12 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import { Nav, VideoCard } from "../../Components/index";
+import {VideoCard } from "../../Components/index";
 import { useAuth, usePlaylist } from "../../Contexts";
 import './playlist.css';
 import { BsTrash } from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
-// import { useSnackbar } from 'react-simple-snackbar';
-// import { error, success, info } from "../../Utils/snackbar";
 import toast from "react-hot-toast";
 import { API } from '../../api';
 
@@ -14,10 +12,7 @@ export function Playlist() {
 
     const { playlistState, playlistDispatch } = usePlaylist();
     const { authState } = useAuth();
-    // const [openErrorSnackbar] = useSnackbar(error);
-    // const [openSuccessSnackbar] = useSnackbar(success);
-    // const [openInfoSnackbar] = useSnackbar(info);
-
+    
     const deletePlaylist = async (playlistName) => {
         try{
             if(authState.isUserLoggedIn){
@@ -35,10 +30,9 @@ export function Playlist() {
             }
         }
     };
-     console.log("playlist",playlistState)
+    //  console.log("playlist",playlistState)
     return (
         <>
-            <Nav />
             <div className="playlist-page">
                 {
                     playlistState.playlist.map(playlist => {

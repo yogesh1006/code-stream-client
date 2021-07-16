@@ -1,13 +1,9 @@
 import { NavLink } from "react-router-dom";
-// import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-// import PlaylistAddOutlinedIcon from '@material-ui/icons/PlaylistAddOutlined';
-// import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
-// import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import './sideBar.css'
 import { FaHome} from "react-icons/fa";
 import { MdPlaylistAdd } from "react-icons/md";
-// import { MdPlaylistAdd ,FaHome} from "react-icons/fa";
-import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
+import { BsFillBookmarkFill} from "react-icons/bs";
+import { AiFillLike } from "react-icons/ai";
 
 
 
@@ -27,12 +23,12 @@ export  function SideBar() {
         <p className="nav-item-name">Playlist</p>
       </NavLink>
       <NavLink to="/likedvideos" activeClassName="active-link" className="sidebar-item">
-        <BsFillBookmarkFill />
+        <AiFillLike/>
         <p className="nav-item-name">likes</p>
       </NavLink>
       <NavLink to="/savedvideos" activeClassName="active-link" className="sidebar-item">
-        <BsBookmark />
-        <p className="nav-item-name">History</p>
+        <BsFillBookmarkFill />
+        <p className="nav-item-name">Saved Videos</p>
       </NavLink>
     </aside>
   );

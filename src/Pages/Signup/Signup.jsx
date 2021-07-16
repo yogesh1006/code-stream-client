@@ -46,63 +46,73 @@ export function Signup() {
 
   return (
     <form onSubmit={formik.handleSubmit} className="loginform">
-      <div>
-        <h1>SignUp</h1>
+      <h1 className="title">SignUp</h1>
+      <div className="input">
+        <label htmlFor="username" >Username </label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          className="input-field"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.username}
+        />
+        {formik.touched.username && formik.errors.username ? (
+          <div style={{color:"red"}}>{formik.errors.username}</div>
+        ) : null}
       </div>
-      <label htmlFor="username">Username </label>
-      <input
-        id="username"
-        name="username"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.username}
-      />
-      {formik.touched.username && formik.errors.username ? (
-        <div>{formik.errors.username}</div>
-      ) : null}
-      <label htmlFor="name">Name </label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-      />
-      {formik.touched.name && formik.errors.name ? (
-        <div>{formik.errors.name}</div>
-      ) : null}
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
+      <div className="input">
+        <label htmlFor="name" >Name </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          className="input-field"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.name}
+        />
+        {formik.touched.name && formik.errors.name ? (
+          <div style={{color:"red"}}>{formik.errors.name}</div>
+        ) : null}
+      </div>
+      <div className="input">
+        <label htmlFor="email">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          className="input-field"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+        />
+        {formik.touched.email && formik.errors.email ? (
+          <div style={{color:"red"}}>{formik.errors.email}</div>
+        ) : null}
+      </div>
+      <div className="input">
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          className="input-field"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+        />
+        {formik.touched.password && formik.errors.password ? (
+          <div style={{color:"red"}}>{formik.errors.password}</div>
+        ) : null}
+      </div>
 
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
+      <button className="btn btn-dark" type="submit">Submit</button>
 
-      <button type="submit">Submit</button>
-      <div>
+      <div className="login-link">
         <p>
-          Already Registered?<NavLink to="/login"> Signin</NavLink>
+          Already Registered?<NavLink to="/login"><span style={{color:"InfoBackground"}}>Signin</span> </NavLink>
         </p>
       </div>
     </form>

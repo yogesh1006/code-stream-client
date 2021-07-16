@@ -1,22 +1,18 @@
-import { React} from "react";
+import { React } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useAuth } from "../../Contexts";
 import "./login.css";
 import axios from "axios";
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import { API } from "../../api";
 import toast from "react-hot-toast";
 
-
 export function Login() {
-    const {authState, authDispatch} = useAuth();
-//   const { state } = useLocation();
+  const { authDispatch } = useAuth();
   const history = useHistory();
- 
 
-
-  console.log(authState);
+  // console.log(authState);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -29,20 +25,27 @@ export function Login() {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      axios.post(`${API}/auth/login`,values)
-    .then((response) => {
-      console.log(response);
+      axios
+        .post(`${API}/auth/login`, values)
+        .then((response) => {
+          // console.log(response);
 
-      let data= response.data.data
-      localStorage?.setItem("jwt", JSON.stringify({ isUserLoggedIn: true, token: data.token }))
-      localStorage?.setItem("user",JSON.stringify({username:data.username}))
-      toast.success(response.data.message);
-      authDispatch({type:"LOGIN",payload:data.token})
-      history.push("/");
-  
-    }).catch(err =>{
-      toast.error(err.response.data.message);
-    });
+          let data = response.data.data;
+          localStorage?.setItem(
+            "jwt",
+            JSON.stringify({ isUserLoggedIn: true, token: data.token })
+          );
+          localStorage?.setItem(
+            "user",
+            JSON.stringify({ username: data.username })
+          );
+          toast.success(response.data.message);
+          authDispatch({ type: "LOGIN", payload: data.token });
+          history.push("/");
+        })
+        .catch((err) => {
+          toast.error(err.response.data.message);
+        });
     },
   });
 
@@ -52,36 +55,43 @@ export function Login() {
         <div>
           <h1>Signin</h1>
         </div>
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+        <div className="input">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className="input-field"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div style={{color:"red"}}>{formik.errors.email}</div>
+          ) : null}
+        </div>
+        <div className="input">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            className="input-field"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div style={{color:"red"}}>{formik.errors.password}</div>
+          ) : null}
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
-
-        <button type="submit">Submit</button>
-        <div className="mt-4 tracking-wide">
+        <button type="submit" className="btn btn-dark">
+          Submit
+        </button>
+        <div className="signup-link">
           <p>
-            Don't have an Account?<NavLink to="/register"> Signup</NavLink>
+            Don't have an Account?<NavLink to="/register"><span style={{color:"InfoBackground"}}>Signup</span> </NavLink>
           </p>
         </div>
       </form>

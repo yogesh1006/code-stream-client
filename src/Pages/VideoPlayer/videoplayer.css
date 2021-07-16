@@ -6,7 +6,7 @@
 }
 
 .player-card {
-  margin: 0;
+  margin: 5rem 0;
 }
 
 .actions {
@@ -71,8 +71,6 @@
   border-radius: 1rem;
   background-color: black;
   color: white;
-  /* background-color: var(--color-primary);
-    color: var(--color-text); */
   box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 12px;
 }
 
@@ -159,6 +157,8 @@
   .player-page {
     padding: 6rem 3rem 1rem 3rem;
     margin-bottom: 0;
+    margin-left:2rem;
+    color:var(--color-white);
     min-height: 100vh;
   }
 

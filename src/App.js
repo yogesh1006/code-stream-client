@@ -4,11 +4,13 @@ import { Home, Playlist, LikedVideos, SavedVideos, VideoPlayer, Login, Signup } 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute"
 import { Toaster } from "react-hot-toast";
 import {SideBar} from "../src/Components/SideBar/SideBar"
+import { Nav } from './Components';
 
 function App() {
   return (
     <div className="App">
       <Toaster/>
+      <Nav/>
       <SideBar />
       <Switch>
         <Route exact path='/' component={Home} ></Route>

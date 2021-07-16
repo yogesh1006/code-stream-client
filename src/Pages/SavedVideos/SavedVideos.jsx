@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, VideoCard } from "../../Components/index";
+import { VideoCard } from "../../Components/index";
 import './savedVideos.css';
 import { useSavedVideos } from "../../Contexts";
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,6 @@ export function SavedVideos() {
 
     return (
         <>
-            <Nav />
             <div className="watch-page">
                 <div className="watch-card">
                     {savedState.savedVideos.map(video => <VideoCard data={video} key={video.videoId} />)}

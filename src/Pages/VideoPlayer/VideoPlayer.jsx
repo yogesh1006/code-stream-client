@@ -8,7 +8,6 @@ import { AiFillLike } from "react-icons/ai";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import { RiPlayListAddFill } from "react-icons/ri";
 import "./videoplayer.css";
-import { Nav } from "../../Components/index";
 import {
   useAuth,
   useLikedVideos,
@@ -223,7 +222,6 @@ export function VideoPlayer() {
 
   return (
     <>
-      <Nav />
       <div className="player-page">
         <div className="player-card">
           <ReactPlayer

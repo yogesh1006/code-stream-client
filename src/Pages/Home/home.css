@@ -14,7 +14,7 @@ h1{
 @media only screen and (min-width: 768px) {
 
     .video-page{
-        padding: 6rem 3rem 1rem 3rem;
+        padding: 3rem 3rem 1rem 4rem;
         min-height: 100vh;
         margin-bottom: 0;
         flex-direction: row;

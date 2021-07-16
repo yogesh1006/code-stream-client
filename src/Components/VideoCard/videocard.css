@@ -8,11 +8,6 @@
     max-width: calc(100% - (100% / var(--width)));
   }
   
-  @media (max-width: 768px) {
-    .videolist {
-      margin: 4rem 0;
-    }
-  }
   
 /* videocard */
 
@@ -34,11 +29,9 @@
   }
   .card-details {
     position: relative;
-    padding: 0.2rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-start; */
-    /* align-items: flex-start; */
   }
   
   .card-channel-details{
@@ -55,7 +48,7 @@
       width: calc(100%);
       line-height: 1rem;
       font-weight:bolder;
-      max-height: 2.6rem;
+      max-height: 2.9rem;
       overflow: hidden;
       color:#FFF;
     }
@@ -82,23 +75,26 @@
   
   
   
-    @media (max-width: 550px) {
+     /* @media (max-width: 550px) {
       .card {
-        /* max-width: 100vw; */
         width: 100%;
       }
   
        .card-details{
          display: flex;
          flex-direction: row;
-        /* max-width: 50vw; */
+        max-width: 50vw;
+      }
+    }  */
+
+
+
+
+    @media (max-width: 768px) {
+      .videolist {
+        margin: 5rem 0;
       }
     }
-
-
-
-
-
 
 
 

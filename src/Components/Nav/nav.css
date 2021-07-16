@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
 nav{
+    position:fixed;
+    width:100%;
+    z-index:10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,13 +16,13 @@ nav{
 .header h1{
     font-family: 'Comfortaa', cursive;
     text-transform: lowercase;
-    font-size: 2.5rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-secondary);
 }
 
 .it{
-    color: var(--color-secondary);
+    color: white;
 }
 
 .nav-bar{
@@ -44,52 +47,9 @@ nav{
     display: none;
 }
 
-.bottom-nav-links{
-    height: 3rem;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    z-index: 10;
-    background-color: var(--color-primary);
-}
-
-.bottom-nav-links ul{
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.bottom-nav-links ul li{
-    margin: 0.5rem 1rem 0 0;
-}
-
-.icon{
-    width: 2rem;
-    height: auto;
-    color: var(--color-text);
-}
-
-.active > .icon {
-    color: var(--color-secondary);
-}
-
-.link{
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-.link:hover{
-    color: var(--color-secondary);
-}
-
-.active-nav{
-    color: var(--color-secondary);
-}
-
 .profile-img{
     position: relative;
+    margin-right:1rem;
 }
 
 .open-modal{
@@ -100,13 +60,14 @@ nav{
     position: fixed;
     color: var(--color-primary);
     z-index: 10;
-    top: 0;
-    left: 0;
+    top: 12rem;
+    left: 3rem;
     width: 100%;
     height: 100%;
-    padding-top: 4.8rem;
-    padding-left: 7rem;
-    background-color: rgba(131, 125, 125, 0.4);
+    /* padding-top: 4.8rem;
+    padding-left: 7rem; */
+    padding:4.8rem auto;
+    /* background-color: rgba(131, 125, 125, 0.4); */
 }
 
 .profile-content{
@@ -114,6 +75,8 @@ nav{
     background-color: var(--color-primary);
     color: var(--color-text);
     border-radius: 0.25rem;
+    border:2px solid white;
+    /* margin-right:4rem; */
 }
 
 .profile-header{
@@ -165,41 +128,22 @@ nav{
         width: 100%;
         position: fixed;
         top: 0;
+        /* right:0;
+        left:0; */
         z-index: 10;
         box-shadow: rgba(255, 255, 255, 0.15) 1.95px 1.95px 2.6px;
     }
-
-    .header{
-        margin: 0.5rem 5rem 0.2rem 5rem;
-    }
-
-    .header h1{
-        font-size: 3rem;
-    }
-
-    .nav-bar{
-        margin: 0.5rem 5rem 0.2rem 5rem;
-    }
-
-    .nav-links{
-        display: block;
-    }
-
-    .nav-links ul{
-        list-style-type: none;
-        display: flex;
-        justify-content: space-evenly;
-    }
     
-    .nav-links ul li{
-        margin: 0 1rem;
+    .profile-img{
+        /* position: relative; */
+        margin-right:2rem;
     }
 
-    .bottom-nav-links{
-        display: none;
+    .modal-div{
+        margin:auto;
     }
 
     .profile-modal{
-        padding-left: 60rem;
+        margin:0 20rem;
     }
 }
