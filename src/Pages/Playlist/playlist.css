@@ -51,5 +51,11 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
+    
+    .playlist-video-card{
+       display: flex;
+       margin-left: 6rem;
+       flex-wrap: wrap;
+    }
 
 }
