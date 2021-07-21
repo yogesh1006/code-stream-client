@@ -60,8 +60,8 @@ nav{
     position: fixed;
     color: var(--color-primary);
     z-index: 10;
-    top: 12rem;
-    left: 3rem;
+    top: 6.68rem !important;
+    left: 45rem !important;
     width: 100%;
     height: 100%;
     /* padding-top: 4.8rem;
@@ -71,7 +71,7 @@ nav{
 }
 
 .profile-content{
-    width: 15rem;
+    width: 14rem;
     background-color: var(--color-primary);
     color: var(--color-text);
     border-radius: 0.25rem;
@@ -145,5 +145,9 @@ nav{
 
     .profile-modal{
         margin:0 20rem;
+    }
+
+    .profile-content{
+        width:14rem;
     }
 }
