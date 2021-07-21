@@ -14,7 +14,6 @@ export default function SavedVideosProvider({ children }){
     useEffect(()=>{
         (async function(){
             const res = await axios.get(`${API}/api/get_all_saved_videos`, { headers: { "authorization": authState.token } });
-            console.log("res",res)
             savedDispatch({ type: "LOAD", payload: res.data.data.savedVideos })
         })()
     },[authState])  

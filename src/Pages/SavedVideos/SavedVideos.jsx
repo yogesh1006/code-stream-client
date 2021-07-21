@@ -1,13 +1,11 @@
-import React from 'react'
 import { VideoCard } from "../../Components/index";
 import './savedVideos.css';
 import { useSavedVideos } from "../../Contexts";
 import { NavLink } from 'react-router-dom';
-
 export function SavedVideos() {
 
-    const { savedState } = useSavedVideos();
-    console.log("savedState",savedState)
+    const { savedState} = useSavedVideos();
+    
 
     return (
         <>

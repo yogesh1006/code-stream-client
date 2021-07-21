@@ -12,7 +12,6 @@ export function Login() {
   const { authDispatch } = useAuth();
   const history = useHistory();
 
-  // console.log(authState);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -28,7 +27,6 @@ export function Login() {
       axios
         .post(`${API}/auth/login`, values)
         .then((response) => {
-          // console.log(response);
 
           let data = response.data.data;
           localStorage?.setItem(

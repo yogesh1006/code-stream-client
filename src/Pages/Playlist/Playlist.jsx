@@ -30,7 +30,7 @@ export function Playlist() {
             }
         }
     };
-    //  console.log("playlist",playlistState)
+    
     return (
         <>
             <div className="playlist-page">

@@ -14,7 +14,6 @@ export default function LikeProvider({ children }){
     useEffect(()=>{
         (async function(){
             const likedVideo = await axios.get(`${API}/api/get_all_liked_videos`, { headers: { authorization: authState.token } });
-            console.log("likedVideo",likedVideo)
             likeDispatch({ type: "LOAD", payload: likedVideo.data.data.likedVideos })
         })()
     },[authState])

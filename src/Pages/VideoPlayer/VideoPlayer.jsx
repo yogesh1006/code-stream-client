@@ -50,19 +50,19 @@ export function VideoPlayer() {
       } = await axios.get(`${API}/api/get_user_data`, {
         headers: { authorization: authState.token },
       });
-      console.log(result);
       setUser(result);
     })();
   }, [authState]);
 
   const likeHandler = async (video) => {
+  
     try {
       if (authState.isUserLoggedIn) {
         if (videoPlayerState.like) {
-          await axios.delete(
-            `${API}/api/remove_liked_videos`,
+          await axios.post(
+            `${API}/api/remove_liked_video`,
             { id: video._id },
-            { headers: { authorization: authState.token } }
+            { headers: { "authorization": authState.token } }
           );
           likeDispatch({ type: "REMOVE-FROM-LIKEVIDEOS", payload: video });
           videoPlayerDispatch({ type: "LIKE", payload: false });
@@ -91,14 +91,15 @@ export function VideoPlayer() {
       }
     }
   };
+
   const saveHandler = async (video) => {
     try {
       if (authState.isUserLoggedIn) {
         if (videoPlayerState.saved) {
-          await axios.delete(
+          await axios.post(
             `${API}/api/remove_saved_video`,
             { id: video._id },
-            { headers: { authorization: authState.token } }
+            { headers: { "authorization":authState.token } }
           );
           savedDispatch({ type: "REMOVE-FROM-SAVEDVIDEOS", payload: video });
           videoPlayerDispatch({ type: "SAVED", payload: false });
@@ -154,10 +155,10 @@ export function VideoPlayer() {
   const removePlaylistHandler = async (video, playlist) => {
     try {
       if (authState.isUserLoggedIn) {
-        await axios.delete(
+        await axios.post(
           `${API}/api/remove_from_playlist/${playlist._id}`,
           { videoId: video._id, username: user.username },
-          axiosConfig
+          { headers: { authorization: authState.token } }
         );
         playlistDispatch({
           type: "REMOVE-FROM-PLAYLIST",
@@ -210,10 +211,10 @@ export function VideoPlayer() {
     const data = videos.find((video) => video.id === id);
     setVideo(data);
     const isLiked = likeState.likedVideos.some(
-      (video) => video.videoId === data.videoId
+      (video) => video.id === data.id
     );
     const isSaved = savedState.savedVideos.some(
-      (video) => video.videoId === data.videoId
+      (video) => video.id === data.id
     );
     isLiked && videoPlayerDispatch({ type: "LIKE", payload: true });
     isSaved && videoPlayerDispatch({ type: "SAVED", payload: true });

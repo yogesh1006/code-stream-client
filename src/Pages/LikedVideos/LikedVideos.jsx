@@ -7,7 +7,7 @@ import './likedvideos.css';
 export function LikedVideos() {
 
     const { likeState } = useLikedVideos();
-    // console.log("likestate",likeState)
+
     return (
         <>
         <div className="like-page">

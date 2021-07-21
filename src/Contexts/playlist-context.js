@@ -14,7 +14,6 @@ export default function PlaylistProvider({ children }){
     useEffect(()=>{
         (async function(){
             const res = await axios.get(`${API}/api/get_user_playlist`, { headers: { authorization: authState.token } });
-            console.log("response",res)
             playlistDispatch({ type: "LOAD", payload: res.data.data})
         })()
     },[authState])
