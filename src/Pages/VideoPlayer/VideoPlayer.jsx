@@ -69,7 +69,7 @@ export function VideoPlayer() {
           toast.success("Removed from Liked Videos");
         } else {
           var postData = { id: video._id };
-          let axiosConfig = { headers: { Authorization: authState.token } };
+          let axiosConfig = { headers: { authorization: authState.token } };
           await axios.post(
             `${API}/api/add_to_liked_videos`,
             postData,
