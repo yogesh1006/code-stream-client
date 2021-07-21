@@ -11,6 +11,7 @@ export function LikedVideos() {
     return (
         <>
         <div className="like-page">
+            <h2 style={{marginTop:"5rem",marginLeft:"5rem",color:"white"}}> Liked Videos : {likeState.likedVideos.length}</h2>
             <div className="like-card">
                 { likeState.likedVideos.map(video => <VideoCard data={video} key={video.videoId} />) }
             </div>

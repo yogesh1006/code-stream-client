@@ -10,6 +10,7 @@ export function SavedVideos() {
     return (
         <>
             <div className="watch-page">
+                <h2 style={{color:"white",marginTop:"5rem",marginLeft:"5rem"}}>Saved Videos : {savedState.savedVideos.length}</h2>
                 <div className="watch-card">
                     {savedState.savedVideos.map(video => <VideoCard data={video} key={video.videoId} />)}
                 </div>

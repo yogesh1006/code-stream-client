@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
-// import SnackbarProvider from 'react-simple-snackbar'
 import LikeProvider from "./Contexts/like-context"
 import SavedVideosProvider from "./Contexts/saved-context"
 import PlaylistProvider from "./Contexts/playlist-context"

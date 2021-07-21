@@ -24,9 +24,9 @@
     }
 
     .like-card{
-        padding: 6rem 3rem 1rem 3rem;
-        margin-bottom: 0;
-        flex-direction: row;
+        /* padding: 1rem 3rem 1rem 3rem; */
+        /* margin-bottom: 0; */
+        /* flex-direction: row; */
         flex-wrap: wrap;
     }
 }

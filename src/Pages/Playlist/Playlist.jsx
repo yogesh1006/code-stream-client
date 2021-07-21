@@ -34,6 +34,7 @@ export function Playlist() {
     return (
         <>
             <div className="playlist-page">
+                <h2 style={{color:"white"}}>Playlists : {playlistState.playlist.length}</h2>
                 {
                     playlistState.playlist.map(playlist => {
                         return (
