@@ -46,7 +46,7 @@ export function Playlist() {
                                     {
                                         playlist.videos.map(video => {
                                             return (
-                                                <VideoCard data={video} key={video.videoId} />
+                                               <div classname:"playlist-video-card"> <VideoCard data={video} key={video.videoId} /> </div>
                                             )
                                         })
                                     }
