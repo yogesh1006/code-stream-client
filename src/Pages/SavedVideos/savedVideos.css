@@ -2,14 +2,27 @@
     background-color: var(--color-primary);
     min-height: 40rem;
     padding: 0.5rem 0 3rem 0;
+    /* margin-left:1rem; */
 }
 
 .watch-card{
     background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
+    justify-content:flex-start;
     margin-bottom: 2.8rem;
 }
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
+
 
 @media only screen and (min-width: 768px) {
 

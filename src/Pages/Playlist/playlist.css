@@ -3,12 +3,18 @@
     min-height: 40rem;
     padding: 0.5rem 0 3rem 0;
 }
-
+.playlists{
+    margin-top:4.4rem;
+}
+.playlist-count{
+    color:white;
+    text-align:center;
+}
 .container{
     color: var(--color-text);
     border-radius: 1rem;
-    margin: 0.5rem;
-    padding: 1rem;
+    /* margin: 0.5rem;
+    padding: 1rem; */
     display: flex;
 }
 
@@ -37,6 +43,21 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+.playlist-video-card{
+    display: flex;
+    margin-left: 6rem;
+    flex-wrap: wrap;
+ }
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
 
 @media only screen and (min-width: 768px) {
 

@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React,useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import "./signup.css";
 // import { useAuth } from "../../Contexts";
@@ -7,11 +7,13 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { API } from "../../api";
 import toast from "react-hot-toast";
+import Loader from "react-loader-spinner";
 
 export function Signup() {
   // const { authDispatch } = useAuth();
-
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -32,6 +34,7 @@ export function Signup() {
         .required("Required"),
     }),
     onSubmit: (values) => {
+      setLoading(true);
       axios
         .post(`${API}/auth/register`, values)
         .then((res) => {
@@ -40,6 +43,8 @@ export function Signup() {
         .catch((err) => {
           toast.error(err.response.data.message);
         });
+      setLoading(false);
+
       history.push("/login");
     },
   });
@@ -48,7 +53,7 @@ export function Signup() {
     <form onSubmit={formik.handleSubmit} className="loginform">
       <h1 className="title">SignUp</h1>
       <div className="input">
-        <label htmlFor="username" >Username </label>
+        <label htmlFor="username">Username </label>
         <input
           id="username"
           name="username"
@@ -57,13 +62,14 @@ export function Signup() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.username}
+          size={35}
         />
         {formik.touched.username && formik.errors.username ? (
-          <div style={{color:"red"}}>{formik.errors.username}</div>
+          <div style={{ color: "red" }}>{formik.errors.username}</div>
         ) : null}
       </div>
       <div className="input">
-        <label htmlFor="name" >Name </label>
+        <label htmlFor="name">Name </label>
         <input
           id="name"
           name="name"
@@ -72,9 +78,10 @@ export function Signup() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.name}
+          size={35}
         />
         {formik.touched.name && formik.errors.name ? (
-          <div style={{color:"red"}}>{formik.errors.name}</div>
+          <div style={{ color: "red" }}>{formik.errors.name}</div>
         ) : null}
       </div>
       <div className="input">
@@ -87,9 +94,10 @@ export function Signup() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
+          size={35}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div style={{color:"red"}}>{formik.errors.email}</div>
+          <div style={{ color: "red" }}>{formik.errors.email}</div>
         ) : null}
       </div>
       <div className="input">
@@ -102,19 +110,31 @@ export function Signup() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
+          size={35}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div style={{color:"red"}}>{formik.errors.password}</div>
+          <div style={{ color: "red" }}>{formik.errors.password}</div>
         ) : null}
       </div>
 
-      <button className="btn btn-dark" type="submit">Submit</button>
+      <button className="btn btn-dark" type="submit">
+        Signup
+      </button>
 
       <div className="login-link">
         <p>
-          Already Registered?<NavLink to="/login"><span style={{color:"InfoBackground"}}>Signin</span> </NavLink>
+          Already Registered?
+          <NavLink to="/login">
+            <span style={{ color: "InfoBackground" }}>Signin</span>{" "}
+          </NavLink>
         </p>
       </div>
+      {loading && (
+        <div className="load">
+          <Loader type="TailSpin" color="#ffffff" height={35} width={35} />
+        </div>
+        )
+       }
     </form>
   );
 }

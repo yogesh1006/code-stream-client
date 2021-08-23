@@ -1,14 +1,14 @@
-import './App.css';
 import { Route, Switch } from "react-router-dom";
 import { Home, Playlist, LikedVideos, SavedVideos, VideoPlayer, Login, Signup } from "./Pages";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute"
 import { Toaster } from "react-hot-toast";
 import {SideBar} from "../src/Components/SideBar/SideBar"
 import { Nav } from './Components';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Toaster/>
       <Nav/>
       <SideBar />

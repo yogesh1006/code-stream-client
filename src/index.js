@@ -9,8 +9,6 @@ import PlaylistProvider from "./Contexts/playlist-context"
 import VideosProvider from "./Contexts/videos-context"
 import AuthProvider from "./Contexts/authContext"
 
-// import { LikeProvider, SavedVideosProvider, PlaylistProvider, VideosProvider, AuthProvider } from "./Contexts/index";
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>

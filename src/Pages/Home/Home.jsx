@@ -2,16 +2,23 @@ import { React } from "react";
 import "./home.css";
 import { VideoCard } from "../../Components/index";
 import { useVideos } from "../../Contexts";
+import Loader from "react-loader-spinner";
 
 export function Home() {
-  const { videos } = useVideos();
+  const { videos, loading } = useVideos();
   return (
     <>
-      <div className="video-page">
-        {videos.map((video) => (
+      {loading ? (
+        <div className="loader">
+          <Loader type="TailSpin" color="#000000" height={70} width={70} />
+        </div>
+      ) : (
+        <div className="video-page">
+          {videos.map((video) => (
             <VideoCard data={video} key={video._id} />
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React,useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useAuth } from "../../Contexts";
 import "./login.css";
@@ -7,15 +7,16 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { API } from "../../api";
 import toast from "react-hot-toast";
+import Loader from "react-loader-spinner";
 
 export function Login() {
   const { authDispatch } = useAuth();
   const history = useHistory();
-
+  const [loading, setLoading] = useState(false)
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "test@gmail.com",
+      password: "test123",
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Required"),
@@ -24,6 +25,7 @@ export function Login() {
         .required("Required"),
     }),
     onSubmit: (values) => {
+      setLoading(true)
       axios
         .post(`${API}/auth/login`, values)
         .then((response) => {
@@ -39,6 +41,7 @@ export function Login() {
           );
           toast.success(response.data.message);
           authDispatch({ type: "LOGIN", payload: data.token });
+          setLoading(false)
           history.push("/");
         })
         .catch((err) => {
@@ -63,6 +66,7 @@ export function Login() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
+            size={35}
           />
           {formik.touched.email && formik.errors.email ? (
             <div style={{color:"red"}}>{formik.errors.email}</div>
@@ -78,6 +82,7 @@ export function Login() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
+            size={35}
           />
           {formik.touched.password && formik.errors.password ? (
             <div style={{color:"red"}}>{formik.errors.password}</div>
@@ -85,13 +90,18 @@ export function Login() {
         </div>
 
         <button type="submit" className="btn btn-dark">
-          Submit
+          Login
         </button>
         <div className="signup-link">
           <p>
             Don't have an Account?<NavLink to="/register"><span style={{color:"InfoBackground"}}>Signup</span> </NavLink>
           </p>
         </div>
+        {loading && (
+        <div className="load">
+          <Loader type="TailSpin" color="#ffffff" height={35} width={35} />
+        </div>)
+       }
       </form>
     </>
   );

@@ -17,6 +17,17 @@
     color: var(--color-lightGray);
 }
 
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
+
 @media only screen and (min-width: 768px) {
 
     .like-page{
@@ -25,8 +36,8 @@
 
     .like-card{
         /* padding: 1rem 3rem 1rem 3rem; */
-        /* margin-bottom: 0; */
-        /* flex-direction: row; */
+        margin-left: 4rem;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 }
